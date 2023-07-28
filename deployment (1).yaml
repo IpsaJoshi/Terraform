@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-nginx
+  namespace: nginx
+  labels:
+    course: clo835
+    week: week5
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: nginx-pod
+  template:
+    metadata:
+      labels:
+        name: nginx-pod
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+        # httpd:2.4-alpine
